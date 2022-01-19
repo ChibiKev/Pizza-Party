@@ -1,11 +1,19 @@
 <resources>
     <string name="app_name">Pizza Party</string>
-    <string name="people_for_pizza">Number of people?</string>
+    <string name="people_for_pizza">Total Amount of People</string>
+    <string name="slices_per_person">Amount of Slices Per Person</string>
     <string name="amount">10</string>
-    <string name="hungry">How hungry?</string>
-    <string name="light">Light</string>
+    <string name="slices">2</string>
+    <string name="hungry">What Size?</string>
+    <string name="small">Small</string>
     <string name="medium">Medium</string>
-    <string name="ravenous">Ravenous</string>
+    <string name="large">Large</string>
+    <string name="toppings">What Toppings?</string>
+    <string name="plain">Plain</string>
+    <string name="pepperoni">Pepperoni</string>
+    <string name="chicken">Chicken</string>
     <string name="total">Total pizzas: ?</string>
-    <string name="calculate_button">Calculate</string>
+    <string name="cost">Total Cost: ?</string>
+    <string name="calculate_pizza_button">Calculate Amount of Pizzas</string>
+    <string name="calculate_cost_button">Calculate Price</string>
 </resources>

@@ -30,6 +30,22 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="@string/slices_per_person"
+        android:textSize="@dimen/text_size"
+        android:labelFor="@id/num_amount_edit_text" />
+
+    <EditText
+        android:id="@+id/num_amount_edit_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="5"
+        android:importantForAutofill="no"
+        android:hint="@string/slices" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="@string/hungry"
         android:textSize="24sp"
@@ -41,8 +57,8 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
         <RadioButton
-            android:id="@+id/light_radio_button"
-            android:text="@string/light"
+            android:id="@+id/small_radio_button"
+            android:text="@string/small"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
         <RadioButton
@@ -52,8 +68,39 @@
             android:layout_height="wrap_content"
             android:checked="true" />
         <RadioButton
-            android:id="@+id/ravenous_radio_button"
-            android:text="@string/ravenous"
+            android:id="@+id/large_radio_button"
+            android:text="@string/large"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RadioGroup>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/toppings"
+        android:textSize="24sp"
+        android:labelFor="@id/toppings_radio_group" />
+
+    <RadioGroup
+        android:id="@+id/toppings_radio_group"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <RadioButton
+            android:id="@+id/plain_radio_button"
+            android:text="@string/plain"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <RadioButton
+            android:id="@+id/pepperoni_radio_button"
+            android:text="@string/pepperoni"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true" />
+        <RadioButton
+            android:id="@+id/chicken_radio_button"
+            android:text="@string/chicken"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
     </RadioGroup>
@@ -67,10 +114,26 @@
         android:textSize="24sp"/>
 
     <Button
-        android:id="@+id/calc_button"
-        android:text="@string/calculate_button"
+        android:id="@+id/calculate_pizza_button"
+        android:text="@string/calculate_pizza_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:onClick="calculateClick" />
+        android:onClick="calculatePizzaClick" />
+
+    <TextView
+        android:id="@+id/cost_text_view"
+        android:text="@string/cost"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:textSize="24sp"/>
+
+    <Button
+        android:id="@+id/calculate_cost_button"
+        android:text="@string/calculate_pizza_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:onClick="calculatePriceClick" />
 </LinearLayout>
