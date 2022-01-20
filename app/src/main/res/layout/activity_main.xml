@@ -48,7 +48,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="@string/hungry"
-        android:textSize="24sp"
+        android:textSize="@dimen/text_size"
         android:labelFor="@id/hungry_radio_group" />
 
     <RadioGroup
@@ -79,7 +79,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="@string/toppings"
-        android:textSize="24sp"
+        android:textSize="@dimen/text_size"
         android:labelFor="@id/toppings_radio_group" />
 
     <RadioGroup
@@ -111,7 +111,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:textSize="24sp"/>
+        android:textSize="@dimen/text_size"/>
 
     <Button
         android:id="@+id/calculate_pizza_button"
@@ -127,7 +127,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:textSize="24sp"/>
+        android:textSize="@dimen/text_size"/>
 
     <Button
         android:id="@+id/calculate_cost_button"

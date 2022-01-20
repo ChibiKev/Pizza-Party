@@ -36,7 +36,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void calculatePizzaClick(View view) {
-
         // Get the text that was typed into the EditText
         String numAttendStr = mNumAttendEditText.getText().toString();
         String numAmountStr = mNumAmountEditText.getText().toString();
@@ -46,19 +45,14 @@ public class MainActivity extends AppCompatActivity {
         int numAmount;
         try {
             numAttend = Integer.parseInt(numAttendStr);
-        }
-        catch (NumberFormatException ex) {
-            numAttend = 0;
-        }
-        try {
             numAmount = Integer.parseInt(numAmountStr);
         }
         catch (NumberFormatException ex) {
+            numAttend = 0;
             numAmount = 1;
         }
-
-        // Calculate and show the number of pizzas needed
-        int totalPizzas = (int) Math.ceil(numAmount * numAttend / (double) SLICES_PER_PIZZA);
+        PizzaCalculator myCalculations = new PizzaCalculator(numAttend, numAmount);
+        int totalPizzas = myCalculations.getPizzaAmount();
         mNumPizzasTextView.setText("Total pizzas: " + totalPizzas);
     }
 
@@ -72,40 +66,37 @@ public class MainActivity extends AppCompatActivity {
         int numAmount;
         try {
             numAttend = Integer.parseInt(numAttendStr);
-        }
-        catch (NumberFormatException ex) {
-            numAttend = 0;
-        }
-        try {
             numAmount = Integer.parseInt(numAmountStr);
         }
         catch (NumberFormatException ex) {
+            numAttend = 0;
             numAmount = 1;
         }
 
-        int cost = 0;
-        int checkedId = mHowHungryRadioGroup.getCheckedRadioButtonId();
-        if (checkedId == R.id.small_radio_button) {
-            cost = 8;
-        } else if (checkedId == R.id.medium_radio_button) {
-            cost = 10;
-        } else if (checkedId == R.id.large_radio_button) {
-            cost = 12;
+        PizzaCalculator.PizzaSize pizzaSize = PizzaCalculator.PizzaSize.Small;
+        switch (mHowHungryRadioGroup.getCheckedRadioButtonId()) {
+            case R.id.medium_radio_button: pizzaSize = PizzaCalculator.PizzaSize.Medium;
+                break;
+            case R.id.large_radio_button: pizzaSize = PizzaCalculator.PizzaSize.Large;
+                break;
+            default:
+                break;
         }
 
-        int toppingCost = 0;
-        checkedId = mToppingsRadioGroup.getCheckedRadioButtonId();
-        if (checkedId == R.id.plain_radio_button) {
-            toppingCost = 0;
-        } else if (checkedId == R.id.pepperoni_radio_button) {
-            toppingCost = 2;
-        } else if (checkedId == R.id.chicken_radio_button) {
-            toppingCost = 2;
+        PizzaCalculator.PizzaToppings pizzaToppings = PizzaCalculator.PizzaToppings.Plain;
+        switch (mToppingsRadioGroup.getCheckedRadioButtonId()) {
+            case R.id.pepperoni_radio_button: pizzaToppings = PizzaCalculator.PizzaToppings.Pepperoni;
+                break;
+            case R.id.chicken_radio_button: pizzaToppings = PizzaCalculator.PizzaToppings.Chicken;
+                break;
+            default:
+                break;
         }
+
+        PizzaCalculator myCalculations = new PizzaCalculator(numAttend, numAmount, pizzaSize, pizzaToppings);
 
         // Calculate and show the cost of pizzas
-        int totalPizza = (int) Math.ceil(numAmount * numAttend / (double) SLICES_PER_PIZZA);
-        int totalCost = totalPizza * (cost + toppingCost);
+        int totalCost = myCalculations.getPizzaCost();
         mCostTextView.setText("Total Cost: " + totalCost);
     }
 }
